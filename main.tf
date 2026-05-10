@@ -87,7 +87,7 @@ resource "azurerm_subnet_network_security_group_association" "main" {
   network_security_group_id = azurerm_network_security_group.main.id
 }
 resource "azurerm_storage_account" "main" {
-  name                     = "navyastg"
+  name                     = "navyastgdev001"
   resource_group_name      = azurerm_resource_group.main.name
   location                 = var.location
   account_tier             = "Standard"
