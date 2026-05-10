@@ -12,19 +12,6 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
-variable "environment" {
-  description = "The environment name (dev, staging, prod)"
-  type        = string
-  default     = "dev"
-}
-
-variable "location" {
-  description = "Azure region to deploy into"
-  type        = string
-  default     = "uksouth"
-}
-
 resource "azurerm_resource_group" "main" {
   name     = "rg-myproject-${var.environment}"
   location = var.location
