@@ -17,3 +17,7 @@ output "nsg_id" {
   description = "The ID of the network security group"
   value       = azurerm_network_security_group.main.id
 }
+output "storage_account_name" {
+  description = "The name of the storage account"
+  value       = azurerm_storage_account.main.name
+}
