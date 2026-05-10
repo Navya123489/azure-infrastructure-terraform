@@ -97,3 +97,22 @@ resource "azurerm_storage_account" "main" {
     managed_by  = "terraform"
   }
 }
+data "azurerm_client_config" "current" {}
+
+resource "azurerm_key_vault" "main" {
+  name                = "kv-myproject-dev"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  sku_name            = "standard"
+  tenant_id           = data.azurerm_client_config.current.tenant_id
+
+  network_acls {
+    bypass          = "AzureServices"
+    default_action  = "Allow"
+  }
+
+  tags = {
+    environment = var.environment
+    managed_by  = "terraform"
+  }
+}
